@@ -1,0 +1,354 @@
+@font-face {
+    font-family: 'neueMachina';
+    src: url('/Fonts/NeueMachina-Light.otf') format('openType'),
+        url('/Fonts/NeueMachina-Regular.otf') format('openType'),
+        url('/Fonts/NeueMachina-Ultrabold.otf') format('openType');
+    /* font-weight: normal;
+    font-style: normal; */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+body {
+
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    font-family: neueMachina;
+    /* width: 100vw */
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.elipse {
+    border: 2px solid #949494;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header .elipse {
+    width: 710px;
+    height: 710px;
+    animation: wave 2s infinite;
+}
+
+header .elipse .elipse {
+    width: 610px;
+    height: 610px;
+    animation: wave 2s infinite 0.2s;
+}
+
+header .elipse .elipse .elipse {
+    width: 510px;
+    height: 510px;
+    animation: wave 2s infinite 0.4s;
+}
+
+@keyframes wave {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+header h1 {
+    font-size: 70px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+header h1 span {
+    color: #676767;
+}
+
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0px 30px;
+    overflow: hidden;
+
+    .logo {
+        width: 240px;
+        height: 70px;
+        background-image: url("/images/logo.png");
+        position: absolute;
+        top: 0;
+        right: 0px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .firstSection {
+        width: 50%;
+        text-align: center;
+
+        & h1 {
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .description {
+            font-size: 20px;
+            font-weight: 500;
+            color: #000;
+            margin-bottom: 1rem;
+            text-align: center;
+            padding: 0px 110px;
+        }
+    }
+
+    .secondSection {
+        width: 50%;
+        padding: 20px;
+
+        .elipse {
+            width: 970px;
+            height: 970px;
+            border: 3px solid #CECECE;
+
+            .elipse {
+                width: 870px;
+                height: 870px;
+                border-radius: 50% 0% 0% 50%;
+                border: 3px solid #CECECE;
+
+                .image {
+                    background-image: url("/images/illustration.png");
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    width: 690px;
+                    height: 480px;
+                }
+
+                & button {
+                    background: #036081;
+                    padding: 15px 50px;
+                    border-radius: 15px;
+                    color: #fff;
+                    font-size: 18px;
+                    border: 1px solid #036081;
+                    transition: all 0.3s ease-in-out;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: #015370;
+                        /* color: #036081; */
+                    }
+                }
+            }
+        }
+    }
+}
+
+main {
+    height: 100vh;
+    /* width: 90vw; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+
+    .form {
+        width: 50%;
+
+        & form {
+            border: 1px solid #3E3E3E;
+            height: auto;
+            width: 370px;
+            padding: 50px 20px;
+            border-radius: 20px;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+
+            & fieldset {
+                border: 1px solid #000;
+                border-radius: 10px;
+                padding: 10px 20px;
+
+                & legend {
+                    padding: 5px;
+                }
+
+                & input {
+                    width: 100%;
+                    font-size: 20px;
+                }
+            }
+
+            .error {
+                color: red;
+                font-size: 12px;
+                margin-top: 5px;
+            }
+
+            & button {
+                background: #036081;
+                padding: 15px 50px;
+                border-radius: 10px;
+                color: #fff;
+                font-size: 18px;
+                border: 1px solid #036081;
+                transition: all 0.3s ease-in-out;
+                cursor: pointer;
+                margin-top: 20px;
+
+                &:hover {
+                    background: #015370;
+                    /* color: #036081; */
+                }
+            }
+        }
+    }
+
+    .logo {
+        width: 50%;
+
+        & p {
+            background-image: url("/images/logo.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 50vw;
+            height: 230px;
+            margin: 0 auto;
+        }
+    }
+}
+
+/* responsive site*/
+
+
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 50px;
+    }
+
+    header .elipse {
+        width: 510px;
+        height: 510px;
+    }
+
+    header .elipse .elipse {
+        width: 410px;
+        height: 410px;
+    }
+
+    header .elipse .elipse .elipse {
+        width: 310px;
+        height: 310px;
+    }
+
+    section {
+        flex-direction: column-reverse;
+        padding: 0px;
+        overflow-x: hidden;
+
+        .logo {
+            display: none;
+        }
+
+        .firstSection {
+            width: 130%;
+
+            .description {
+                font-size: 16px;
+            }
+        }
+
+        .secondSection {
+            width: unset;
+            padding: 0px;
+
+            .elipse {
+                width: 100vw;
+                height: 100vw;
+
+                .elipse {
+                    width: 370px;
+                    height: 370px;
+                    border-radius: 50%;
+
+                    .image {
+                        width: 340px;
+                        height: 240px;
+                    }
+                }
+            }
+        }
+    }
+
+    main {
+        padding: 0px;
+
+        .form {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            & form {
+                width: 330px;
+            }
+        }
+
+        .logo {
+            width: 100%;
+
+            & p {
+                width: 100vw;
+                height: 95px;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    header h1 {
+        font-size: 30px;
+    }
+
+    header .elipse {
+        width: 330px;
+        height: 330px;
+    }
+
+    header .elipse .elipse {
+        width: 310px;
+        height: 310px;
+    }
+
+    header .elipse .elipse .elipse {
+        width: 280px;
+        height: 280px;
+    }
+}

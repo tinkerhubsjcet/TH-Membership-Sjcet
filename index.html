@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>TinkerHub | Membership</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik Puddles">
+    <script type="module" src="scripts.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="elipse">
+            <div class="elipse">
+                <div class="elipse">
+                    <h1>Hey <span>folks</span> <br>welcome <span>to</span></h1>
+                    <h1>Tinkerhub</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="logo">
+            <!-- <img src="/images/logo.png" alt="Tinkerhub logo"> -->
+        </div>
+        <div class="firstSection">
+            <h1>What is Tinkerhub?</h1>
+            <p class="description">
+                At TinkerHub, it's all about peer-powered growth. Imagine a place where college students unite to
+                exchange
+                knowledge and skills, spanning coding to art and beyond. But we're not just about academics; we're your
+                personal development squad. Discover hidden talents, refine leadership skills, and conquer the college
+                journey together.
+                <br><br>
+                Our vision? Graduating as confident, empowered individuals ready to conquer the world. TinkerHub is your
+                launchpad to a brighter tomorrow.
+            </p>
+        </div>
+        <div class="secondSection">
+            <div class="elipse">
+                <div class="elipse">
+                    <p class="image"></p>
+                    <button onclick="window.location.href='#register'">Register now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <main id="register">
+        <div class="form">
+            <form action="">
+                <fieldset>
+                    <legend>Membership ID</legend>
+                    <input type="text" id="id" placeholder="id" name="fname" disabled>
+                </fieldset>
+                <fieldset>
+                    <legend>Name</legend>
+                    <input type="text" id="name" placeholder="name" name="fname" required>
+                </fieldset>
+                <fieldset>
+                    <legend>Email</legend>
+                    <input type="email" id="email" placeholder="email" name="fname" required>
+                </fieldset>
+                <fieldset>
+                    <legend>Phone</legend>
+                    <input type="number" id="phone" placeholder="phone" name="fname" required>
+                </fieldset>
+                <p id="error" class="error"></p>
+                <button id="submit-btn" type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="logo">
+            <p></p>
+        </div>
+    </main>
+</body>
+
+
+</html>
