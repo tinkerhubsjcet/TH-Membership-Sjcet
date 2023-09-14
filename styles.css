@@ -2,7 +2,7 @@
     font-family: 'neueMachina';
     src: url('https://github.com/tinkerhubsjcet/TH-Membership-Sjcet/blob/main/Fonts/NeueMachina-Light.otf') format('openType'),
         url('https://github.com/tinkerhubsjcet/TH-Membership-Sjcet/blob/main/Fonts/NeueMachina-Regular.otf') format('openType'),
-        url('/Fonts/NeueMachina-Ultrabold.otf') format('openType');
+        url('https://github.com/tinkerhubsjcet/TH-Membership-Sjcet/blob/main/Fonts/NeueMachina-Ultrabold.otf') format('openType');
     /* font-weight: normal;
     font-style: normal; */
 }
