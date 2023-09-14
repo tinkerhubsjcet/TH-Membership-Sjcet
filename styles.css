@@ -98,7 +98,7 @@ section {
     .logo {
         width: 240px;
         height: 70px;
-        background-image: url("/images/logo.png");
+        background-image: url("https://github.com/tinkerhubsjcet/TH-Membership-Sjcet/blob/main/images/logo.png?raw=true");
         position: absolute;
         top: 0;
         right: 0px;
@@ -235,7 +235,7 @@ main {
         width: 50%;
 
         & p {
-            background-image: url("/images/logo.png");
+            background-image: url("https://github.com/tinkerhubsjcet/TH-Membership-Sjcet/blob/main/images/logo.png?raw=true");
             background-size: contain;
             background-repeat: no-repeat;
             width: 50vw;
