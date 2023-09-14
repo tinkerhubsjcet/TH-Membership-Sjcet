@@ -300,7 +300,7 @@ main {
         flex-direction: column-reverse;
         padding: 0px;
         overflow-x: hidden;
-        height: 90vh;
+        height: 100vh;
 
         .logo {
             display: none;
