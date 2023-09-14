@@ -1,8 +1,8 @@
 @font-face {
     font-family: 'neueMachina';
-    src: url('/Fonts/NeueMachina-Light.otf') format('openType'),
-        url('/Fonts/NeueMachina-Regular.otf') format('openType'),
-        url('/Fonts/NeueMachina-Ultrabold.otf') format('openType');
+    src: url('/Fonts/NeueMachina-Light.woff') format('openType'),
+        url('/Fonts/NeueMachina-Regular.woff') format('openType'),
+        url('/Fonts/NeueMachina-Ultrabold.woff') format('openType');
     /* font-weight: normal;
     font-style: normal; */
 }
