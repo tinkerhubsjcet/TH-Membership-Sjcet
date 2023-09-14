@@ -206,6 +206,11 @@ main {
                     width: 100%;
                     font-size: 20px;
                     font-family: neueMachina;
+
+                    ::placeholder {
+                        font-size: 20px;
+                        font-family: neueMachina;
+                    }
                 }
             }
 
@@ -295,12 +300,12 @@ main {
             padding: 0px;
 
             .elipse {
-                width: 100vw;
-                height: 100vw;
+                width: 95vw;
+                height: 95vw;
 
                 .elipse {
-                    width: 370px;
-                    height: 370px;
+                    width: 365px;
+                    height: 365px;
                     border-radius: 50%;
 
                     .image {
