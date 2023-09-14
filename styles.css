@@ -3,8 +3,8 @@
     src: url('/Fonts/NeueMachina-Light.woff') format('woff'),
         url('/Fonts/NeueMachina-Regular.woff') format('woff'),
         url('/Fonts/NeueMachina-Ultrabold.woff') format('woff');
-    /* font-weight: normal;
-    font-style: normal; */
+    font-weight: normal;
+    font-style: normal;
 }
 
 * {
@@ -12,6 +12,7 @@
     padding: 0;
     border: none;
     outline: none;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -98,7 +99,7 @@ section {
     .logo {
         width: 240px;
         height: 70px;
-        background-image: url("https://github.com/tinkerhubsjcet/TH-Membership-Sjcet/blob/main/images/logo.png?raw=true");
+        background-image: url("/images/logo.png");
         position: absolute;
         top: 0;
         right: 0px;
@@ -141,7 +142,7 @@ section {
                 border: 3px solid #CECECE;
 
                 .image {
-                    background-image: url("https://github.com/tinkerhubsjcet/TH-Membership-Sjcet/blob/main/images/illustration.png?raw=true");
+                    background-image: url("/images/illustration.png");
                     background-size: contain;
                     background-repeat: no-repeat;
                     width: 690px;
@@ -235,7 +236,7 @@ main {
         width: 50%;
 
         & p {
-            background-image: url("https://github.com/tinkerhubsjcet/TH-Membership-Sjcet/blob/main/images/logo.png?raw=true");
+            background-image: url("/images/logo.png");
             background-size: contain;
             background-repeat: no-repeat;
             width: 50vw;

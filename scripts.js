@@ -57,3 +57,11 @@ window.onload = async function () {
     row.insertCell(-1).innerHTML = doc.data().Message;
   });
 };
+
+window.onload = () => {
+  // Delay the scrolling action by 5 seconds (5000 milliseconds)
+  setTimeout(() => {
+    // Scroll the page by 100vh
+    window.scrollTo(0, window.innerHeight);
+  }, 2000);
+};
