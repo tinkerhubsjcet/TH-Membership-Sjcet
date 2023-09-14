@@ -44,34 +44,31 @@ header {
     align-items: center;
     flex-direction: column;
 }
-
 header .elipse {
     width: 710px;
     height: 710px;
-    animation: wave 2s infinite;
+    animation: pulsate 2s infinite alternate;
+    transform-origin: center;
 }
 
 header .elipse .elipse {
     width: 610px;
     height: 610px;
-    animation: wave 2s infinite 0.2s;
+    animation: pulsate 2s infinite alternate 0.2s;
 }
 
 header .elipse .elipse .elipse {
     width: 510px;
     height: 510px;
-    animation: wave 2s infinite 0.4s;
+    animation: pulsate 2s infinite alternate 0.4s;
 }
 
-@keyframes wave {
-
-    0%,
-    100% {
-        transform: translateY(0);
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
     }
-
-    50% {
-        transform: translateY(-10px);
+    100% {
+        transform: scale(1.1); /* You can adjust the scaling factor as needed */
     }
 }
 
