@@ -47,6 +47,7 @@ document.getElementById("submit-btn").onclick = async function (e) {
   });
   console.log("Document written with ID: ", docRef.id);
   document.getElementById("submit-btn").innerHTML = "Data added successfully";
+  document.getElementById("submit-btn").style.background = "green";
   //   location.reload();
 };
 window.onload = async function () {
