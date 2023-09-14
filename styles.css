@@ -141,7 +141,7 @@ section {
                 border: 3px solid #CECECE;
 
                 .image {
-                    background-image: url("/images/illustration.png");
+                    background-image: url(/images/illustration.png);
                     background-size: contain;
                     background-repeat: no-repeat;
                     width: 690px;
