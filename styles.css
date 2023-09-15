@@ -27,6 +27,23 @@ body {
     /* width: 100vw */
     overflow-x: hidden;
     scroll-behavior: smooth;
+
+    & button {
+        background: #036081;
+        padding: 15px 50px;
+        border-radius: 15px;
+        color: #fff;
+        font-size: 18px;
+        font-family: neueMachina;
+        border: 1px solid #036081;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            background: #015370;
+            /* color: #036081; */
+        }
+    }
 }
 
 header {
@@ -44,6 +61,7 @@ header {
     align-items: center;
     flex-direction: column;
 }
+
 header .elipse {
     width: 710px;
     height: 710px;
@@ -67,8 +85,10 @@ header .elipse .elipse .elipse {
     0% {
         transform: scale(1);
     }
+
     100% {
-        transform: scale(1.1); /* You can adjust the scaling factor as needed */
+        transform: scale(1.1);
+        /* You can adjust the scaling factor as needed */
     }
 }
 
@@ -123,21 +143,7 @@ section {
         }
 
         & button {
-            background: #036081;
-            padding: 15px 50px;
-            border-radius: 10px;
-            color: #fff;
-            font-size: 18px;
-            font-family: neueMachina;
-            border: 1px solid #036081;
-            transition: all 0.3s ease-in-out;
-            cursor: pointer;
             display: none;
-
-            &:hover {
-                background: #015370;
-                /* color: #036081; */
-            }
         }
     }
 
@@ -266,6 +272,15 @@ main {
             height: 230px;
             margin: 0 auto;
         }
+    }
+}
+
+.idcard {
+    height: 20vh;
+
+    & button {
+        padding: 14px 10px;
+        border-radius: 10px;
     }
 }
 

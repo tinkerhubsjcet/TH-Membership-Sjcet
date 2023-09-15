@@ -21,19 +21,17 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 var id = Math.random().toString(16).slice(8).toUpperCase();
-
 document.getElementById("id").value = id;
 
 document.getElementById("submit-btn").onclick = async function (e) {
-  e.preventDefault();
-  //   validation
+  document.getElementById("submit-btn").disabled = true;
+
   if (
     document.getElementById("name").value == "" ||
     document.getElementById("email").value == "" ||
     document.getElementById("phone").value == "" ||
     document.getElementById("phone").value.length != 10
   ) {
-    // alert("Please fill all the fields");
     document.getElementById("error").innerHTML =
       "Please fill all the fields in correct format";
     return;
@@ -45,24 +43,31 @@ document.getElementById("submit-btn").onclick = async function (e) {
     Email: document.getElementById("email").value,
     Phone: document.getElementById("phone").value,
   });
-  console.log("Document written with ID: ", docRef.id);
-  document.getElementById("submit-btn").innerHTML = "Data added successfully";
-  document.getElementById("submit-btn").style.background = "green";
-  //   location.reload();
-};
-window.onload = async function () {
-  const querySnapshot = await getDocs(collection(db, "data"));
-  querySnapshot.forEach((doc) => {
-    const row = document.getElementById("tbody").insertRow(0);
-    row.insertCell(0).innerHTML = doc.data().Name;
-    row.insertCell(-1).innerHTML = doc.data().Message;
-  });
+  // console.log("Document written with ID: ", docRef.id);
+  setTimeout(() => {
+    document.getElementById("submit-btn").innerHTML = "Data added successfully";
+    document.getElementById("submit-btn").style.background = "green";
+    document.getElementById("id").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("submit-btn").innerHTML = "Submit";
+    var id = Math.random().toString(16).slice(8).toUpperCase();
+    document.getElementById("id").value = id;
+  }, 2000);
 };
 
-window.onload = () => {
+window.onload = async () => {
   // Delay the scrolling action by 5 seconds (5000 milliseconds)
-  setTimeout(() => {
-    // Scroll the page by 100vh
-    window.scrollTo(0, window.innerHeight);
-  }, 2000);
+  const querySnapshot = await getDocs(collection(db, "data"));
+  querySnapshot.forEach((doc) => {
+    console.log(`${doc.id} => ${doc.data()}`);
+    console.log(doc.data());
+  });
+  
+  if (!window.location.href.includes("#")) {
+    setTimeout(() => {
+      window.scrollTo(0, window.innerHeight);
+    }, 2000);
+  }
 };
