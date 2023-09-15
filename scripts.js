@@ -23,6 +23,23 @@ const db = getFirestore(app);
 var id = Math.random().toString(16).slice(8).toUpperCase();
 document.getElementById("id").value = id;
 
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("get-idcard").onclick = () => {
+    document.getElementById("popUP").style.display = "flex";
+  };
+  document.getElementById("close").onclick = () => {
+    document.getElementById("popUP").style.display = "none";
+  };
+  document.getElementById("idSubmit").onclick = () => {
+    console.log("hi");
+    const querySnapshot = getDocs(collection(db, "data"));
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+      console.log(doc.data());
+    });
+  };
+});
+
 document.getElementById("submit-btn").onclick = async function (e) {
   document.getElementById("submit-btn").disabled = true;
 
@@ -59,12 +76,12 @@ document.getElementById("submit-btn").onclick = async function (e) {
 
 window.onload = async () => {
   // Delay the scrolling action by 5 seconds (5000 milliseconds)
-  const querySnapshot = await getDocs(collection(db, "data"));
-  querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.data()}`);
-    console.log(doc.data());
-  });
-  
+  // const querySnapshot = await getDocs(collection(db, "data"));
+  // querySnapshot.forEach((doc) => {
+  //   console.log(`${doc.id} => ${doc.data()}`);
+  //   console.log(doc.data());
+  // });
+
   if (!window.location.href.includes("#")) {
     setTimeout(() => {
       window.scrollTo(0, window.innerHeight);
