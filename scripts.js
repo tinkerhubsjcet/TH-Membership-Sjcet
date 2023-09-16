@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("idSubmit").onclick = async () => {
     console.log("hi");
     const querySnapshot = await getDocs(collection(db, "data"));
-    const membershipId = document.getElementById("membershipId").value;
+    const membershipId = document.getElementById("membershipId").value.toUpperCase();
 
     // Convert querySnapshot to an array
     const dataArray = querySnapshot.docs.map((doc) => doc.data());
