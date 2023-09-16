@@ -9,6 +9,7 @@
     <title>TinkerHub | Membership</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik Puddles">
+    <script src="/html2canvas.js"></script>
     <script type="module" src="scripts.js"></script>
 </head>
 
@@ -16,12 +17,13 @@
     <div id="popUP" class="popUp">
         <div class="popUpContainer">
             <button  id="close" class="close"></button>
-            <input type="text" placeholder="Membership ID" name="" id="popUP">
+            <input type="text" placeholder="Membership ID" name="" id="membershipId">
             <p id="idSubmit" class="submit"></p>
-            <div class="cardDesign">
-                <p class="name">Name</p>
+            <div class="cardDesign" id="cardDesign">
+                <p id="memberName" class="name">Name</p>
+                <p id="memberId" class="memberId">xxxxxx</p>
             </div>
-            <button>Download</button>
+            <button id="downloadButton">Download</button>
         </div>
     </div>
 

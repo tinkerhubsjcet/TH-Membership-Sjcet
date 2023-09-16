@@ -20,23 +20,74 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+document.addEventListener("DOMContentLoaded", () => {
+  const cardDesign = document.getElementById("cardDesign");
+  const downloadButton = document.getElementById("downloadButton");
+  const scaleRatio = 2; // Adjust the scale ratio as needed
+
+  downloadButton.addEventListener("click", () => {
+      html2canvas(cardDesign).then((canvas) => {
+          const upscaledCanvas = document.createElement("canvas");
+          const ctx = upscaledCanvas.getContext("2d");
+
+          // Calculate the new dimensions
+          const newWidth = canvas.width * scaleRatio;
+          const newHeight = canvas.height * scaleRatio;
+
+          // Set the dimensions of the new canvas
+          upscaledCanvas.width = newWidth;
+          upscaledCanvas.height = newHeight;
+
+          // Apply bicubic interpolation for better quality
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = "high"; // Use "high" quality
+
+          // Draw the image at the larger size
+          ctx.drawImage(canvas, 0, 0, newWidth, newHeight);
+
+          // Convert the upscaled canvas to a data URL
+          const imageDataUrl = upscaledCanvas.toDataURL("image/png");
+
+          // Create a temporary anchor element to trigger the download
+          const a = document.createElement("a");
+          a.href = imageDataUrl;
+          a.download = "upscaledCardDesign.png"; // Specify the filename
+          a.click();
+      });
+  });
+});
+
+
+
 var id = Math.random().toString(16).slice(8).toUpperCase();
 document.getElementById("id").value = id;
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("get-idcard").onclick = () => {
     document.getElementById("popUP").style.display = "flex";
   };
   document.getElementById("close").onclick = () => {
     document.getElementById("popUP").style.display = "none";
   };
-  document.getElementById("idSubmit").onclick = () => {
+  document.getElementById("idSubmit").onclick = async () => {
     console.log("hi");
-    const querySnapshot = getDocs(collection(db, "data"));
-    querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data()}`);
-      console.log(doc.data());
+    const querySnapshot = await getDocs(collection(db, "data"));
+    const membershipId = document.getElementById("membershipId").value;
+
+    // Convert querySnapshot to an array
+    const dataArray = querySnapshot.docs.map((doc) => doc.data());
+
+    // Use filter on the array
+    const filteredData = dataArray.filter((data) => {
+      // console.log(data);
+      return data.Id == membershipId;
     });
+console.log(filteredData);
+    if (filteredData.length > 0) {
+      const data = filteredData[0]; // Assuming there's only one matching document
+      document.getElementById("memberName").innerHTML = data.Name;
+      document.getElementById("memberId").innerHTML = data.Id;
+    }
   };
 });
 

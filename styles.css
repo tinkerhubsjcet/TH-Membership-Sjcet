@@ -116,13 +116,25 @@ body {
                 background-size: contain;
                 background-repeat: no-repeat;
                 height: 400px;
-                width: 100%;
+                width: 210px;
 
                 .name {
                     position: absolute;
                     top: 150px;
-                    left: 60px;
+                    left: 10px;
+                    width: 130px;
+                    line-height: 15px;
+                    border-radius: 10px;
+                    font-weight: 600;
                     /* color: white; */
+                }
+
+                .memberId {
+                    font-size: 12px;
+                    position: absolute;
+                    top: 180px;
+                    left: 10px;
+                    color: #686767;
                 }
             }
         }
