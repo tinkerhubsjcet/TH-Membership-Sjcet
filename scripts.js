@@ -19,27 +19,25 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const currentDate = new Date();
 
 document.addEventListener("DOMContentLoaded", () => {
   const cardDesign = document.getElementById("cardDesign");
   const downloadButton = document.getElementById("downloadButton");
 
   downloadButton.addEventListener("click", () => {
-      // Set the capture dimensions and DPI settings
-      html2canvas(cardDesign, {
-          dpi:  600, // Adjust the DPI as needed
-      }).then((canvas) => {
-          const imageDataUrl = canvas.toDataURL("image/png");
-          const a = document.createElement("a");
-          a.href = imageDataUrl;
-          a.download = "cardDesign.png";
-          a.click();
-      });
+    // Set the capture dimensions and DPI settings
+    html2canvas(cardDesign, {
+      dpi: 300, // Adjust the DPI as needed
+    }).then((canvas) => {
+      const imageDataUrl = canvas.toDataURL("image/png");
+      const a = document.createElement("a");
+      a.href = imageDataUrl;
+      a.download = "cardDesign.png";
+      a.click();
+    });
   });
 });
-
-
-
 
 var id = Math.random().toString(16).slice(8).toUpperCase();
 document.getElementById("id").value = id;
@@ -64,18 +62,28 @@ document.addEventListener("DOMContentLoaded", async () => {
       // console.log(data);
       return data.Id == membershipId;
     });
-console.log(filteredData);
+    console.log(filteredData);
     if (filteredData.length > 0) {
-      const data = filteredData[0]; // Assuming there's only one matching document
+      const data = filteredData[0];
+      const timestamp = data.Date;
+
+      const date = timestamp.toDate();
+
+      // Format the date as "20 September 2023"
+      const options = { year: "numeric", month: "long", day: "numeric" };
+      const formattedDate = date.toLocaleDateString(undefined, options);
+      const dayAndMonth = formattedDate.split(" ")[0] + "th " + formattedDate.split(" ")[1];
+      const year = formattedDate.split(" ")[2];
+
       document.getElementById("memberName").innerHTML = data.Name;
       document.getElementById("memberId").innerHTML = data.Id;
+      document.getElementById("joinDate").innerHTML = dayAndMonth;
+      document.getElementById("joinDateYear").innerHTML = year;
     }
   };
 });
 
 document.getElementById("submit-btn").onclick = async function (e) {
-  document.getElementById("submit-btn").disabled = true;
-
   if (
     document.getElementById("name").value == "" ||
     document.getElementById("email").value == "" ||
@@ -86,12 +94,13 @@ document.getElementById("submit-btn").onclick = async function (e) {
       "Please fill all the fields in correct format";
     return;
   }
-
+  document.getElementById("submit-btn").disabled = true;
   const docRef = await addDoc(collection(db, "data"), {
     Id: document.getElementById("id").value,
     Name: document.getElementById("name").value,
     Email: document.getElementById("email").value,
     Phone: document.getElementById("phone").value,
+    Date: currentDate, // Include the current date
   });
   // console.log("Document written with ID: ", docRef.id);
   setTimeout(() => {
@@ -108,13 +117,6 @@ document.getElementById("submit-btn").onclick = async function (e) {
 };
 
 window.onload = async () => {
-  // Delay the scrolling action by 5 seconds (5000 milliseconds)
-  // const querySnapshot = await getDocs(collection(db, "data"));
-  // querySnapshot.forEach((doc) => {
-  //   console.log(`${doc.id} => ${doc.data()}`);
-  //   console.log(doc.data());
-  // });
-
   if (!window.location.href.includes("#")) {
     setTimeout(() => {
       window.scrollTo(0, window.innerHeight);
