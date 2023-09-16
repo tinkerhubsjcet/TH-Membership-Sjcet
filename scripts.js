@@ -23,39 +23,21 @@ const db = getFirestore(app);
 document.addEventListener("DOMContentLoaded", () => {
   const cardDesign = document.getElementById("cardDesign");
   const downloadButton = document.getElementById("downloadButton");
-  const scaleRatio = 2; // Adjust the scale ratio as needed
 
   downloadButton.addEventListener("click", () => {
-      html2canvas(cardDesign).then((canvas) => {
-          const upscaledCanvas = document.createElement("canvas");
-          const ctx = upscaledCanvas.getContext("2d");
-
-          // Calculate the new dimensions
-          const newWidth = canvas.width * scaleRatio;
-          const newHeight = canvas.height * scaleRatio;
-
-          // Set the dimensions of the new canvas
-          upscaledCanvas.width = newWidth;
-          upscaledCanvas.height = newHeight;
-
-          // Apply bicubic interpolation for better quality
-          ctx.imageSmoothingEnabled = true;
-          ctx.imageSmoothingQuality = "high"; // Use "high" quality
-
-          // Draw the image at the larger size
-          ctx.drawImage(canvas, 0, 0, newWidth, newHeight);
-
-          // Convert the upscaled canvas to a data URL
-          const imageDataUrl = upscaledCanvas.toDataURL("image/png");
-
-          // Create a temporary anchor element to trigger the download
+      // Set the capture dimensions and DPI settings
+      html2canvas(cardDesign, {
+          dpi:  600, // Adjust the DPI as needed
+      }).then((canvas) => {
+          const imageDataUrl = canvas.toDataURL("image/png");
           const a = document.createElement("a");
           a.href = imageDataUrl;
-          a.download = "upscaledCardDesign.png"; // Specify the filename
+          a.download = "cardDesign.png";
           a.click();
       });
   });
 });
+
 
 
 
